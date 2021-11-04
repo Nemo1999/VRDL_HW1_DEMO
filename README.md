@@ -71,7 +71,7 @@ python train.py
 
 5. run `inference.py` and provide the `model.pth` file to generate `answer.txt`
 ```bash
-python inference.py --model_path=expiriment_time=Thu-Nov--4-19:24:03-2021/model.pth
+python inference.py --model_path expiriment_time=Thu-Nov--4-19:24:03-2021/model.pth
 ```
 6. The desired `answer.txt` will be generated under the same folder as `model.pth`
 (the filename is `eval_result11-04-2021__20:47:15.txt` in this case) 
