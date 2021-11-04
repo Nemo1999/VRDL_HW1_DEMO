@@ -1,62 +1,90 @@
+# VRDL HW1 Demo 
 
-# Progressive Multi-Granularity Training
- 
-Code release for Fine-Grained Visual Classiﬁcation via Progressive Multi-Granularity Training of Jigsaw Patches (ECCV2020)
- 
+## Reference 
+
+This project is modified from 
+- Github repo: 
+ [Code release for Fine-Grained Visual Classiﬁcation via Progressive Multi-Granularity Training of Jigsaw Patches (ECCV2020)](https://github.com/PRIS-CV/PMG-Progressive-Multi-Granularity-Training)
+- Original paper:  
+ [Fine-Grained Visual Classification via Progressive Multi-Granularity Training of Jigsaw Patches
+Ruoyi Du, Dongliang Chang, Ayan Kumar Bhunia, Jiyang Xie, Zhanyu Ma, Yi-Zhe Song, Jun Guo](https://arxiv.org/abs/2003.03836)
+
+
+## Reproduce answer.txt
+
 ### Requirement
- 
-python 3.6
+- python 3.6
 
-PyTorch >= 1.3.1
+- PyTorch >= 1.3.1
 
-torchvision >= 0.4.2
+- torchvision >= 0.4.2
+### Training Steps
 
-### Training
-
-1. Download datatsets for FGVC (e.g. CUB-200-2011, Standford Cars, FGVC-Aircraft, etc) and organize the structure as follows:
+1. Download datatsets for HW1 and organize the structure as follows:
 ```
-dataset
-├── train
-│   ├── class_001
-|   |      ├── 1.jpg
-|   |      ├── 2.jpg
-|   |      └── ...
-│   ├── class_002
-|   |      ├── 1.jpg
-|   |      ├── 2.jpg
-|   |      └── ...
-│   └── ...
-└── test
-    ├── class_001
-    |      ├── 1.jpg
-    |      ├── 2.jpg
-    |      └── ...
-    ├── class_002
-    |      ├── 1.jpg
-    |      ├── 2.jpg
-    |      └── ...
-    └── ...
+.
+└── PMG-Progressive-Multi-Granularity-Training
+    ├── datasets
+    │   └── CUB
+    │       ├── classes.txt
+    │       ├── testing_images
+    |       |    ├──xxxx.jpg
+    |       |    ├──xxxx.jpg
+    |       |    ...
+    |       |    └──xxxx.jpg
+    │       ├── testing_img_order.txt
+    │       ├── training_images
+    |       |    ├──xxxx.jpg
+    |       |    ├──xxxx.jpg
+    |       |    ...
+    |       |    └──xxxx.jpg
+    │       └── training_labels.txt
+    ...
+    (other files)
 ```
 
 2. Train from scratch with ``train.py``.
+(training takes about 5~6 hours on single gpu)
 
 
-### Citation
- 
-Please cite our paper if you use PMG in your work.
-```
-@InProceedings{du2020fine,
-  title={Fine-Grained Visual Classification via Progressive Multi-Granularity Training of Jigsaw Patches},
-  author={Du, Ruoyi and Chang, Dongliang and Bhunia, Ayan Kumar and Xie, Jiyang and Song, Yi-Zhe and Ma, Zhanyu and Guo, Jun},
-  booktitle = {European Conference on Computer Vision},
-  year={2020}
-}
-
+```bash
+cd PMG-Progressive-Multi-Granularity-Training
+python train.py
 ```
 
-## Contact
-Thanks for your attention!
-If you have any suggestion or question, you can leave a message here or contact us directly:
-- mazhanyu@bupt.edu.cn
-- beiyoudry@bupt.edu.cn
+3. To reproduce my submition without training:  
+   Download my trained `model.pth` from [google_drive](https://drive.google.com/file/d/1yniVOaTM_FUp6WCeReMALP4o5vmAXsGJ/view?usp=sharing)
+
+
+3. After training, model parameters will be stored inside a directory name `experiment_time=xxxxxxxxx`
+
+```
+.
+└── PMG-Progressive-Multi-Granularity-Training
+    ├── expiriment_time=Thu-Nov--4-19:24:03-2021
+    │   ├── model.pth
+    │   ├── results_test.txt
+    │   └── results_train.txt
+     ...
+    (other files)
+```
+
+5. run `inference.py` and provide the `model.pth` file to generate `answer.txt`
+```bash
+python inference.py --model_path=expiriment_time=Thu-Nov--4-19:24:03-2021/model.pth
+```
+6. The desired `answer.txt` will be generated under the same folder as `model.pth`
+(the filename is `eval_result11-04-2021__20:47:15.txt` in this case) 
+
+```
+.
+└── PMG-Progressive-Multi-Granularity-Training
+    ├── expiriment_time=Thu-Nov--4-19:24:03-2021
+    │   ├── model.pth
+    │   ├── eval_result11-04-2021__20:47:15.txt
+    │   ├── results_test.txt
+    │   └── results_train.txt
+     ...
+    (other files)
+```
 
