@@ -22,8 +22,8 @@ Ruoyi Du, Dongliang Chang, Ayan Kumar Bhunia, Jiyang Xie, Zhanyu Ma, Yi-Zhe Song
 
 1. Download datatsets for HW1 and organize the structure as follows:
 ```
-.
-└── PMG-Progressive-Multi-Granularity-Training
+
+└── VRDL_HW1_DEMO
     ├── datasets
     │   └── CUB
     │       ├── classes.txt
@@ -48,7 +48,7 @@ Ruoyi Du, Dongliang Chang, Ayan Kumar Bhunia, Jiyang Xie, Zhanyu Ma, Yi-Zhe Song
 
 
 ```bash
-cd PMG-Progressive-Multi-Granularity-Training
+cd VRDL_HW1_DEMO
 python train.py
 ```
 
@@ -60,7 +60,7 @@ python train.py
 
 ```
 .
-└── PMG-Progressive-Multi-Granularity-Training
+└── VRDL_HW1_DEMO
     ├── expiriment_time=Thu-Nov--4-19:24:03-2021
     │   ├── model.pth
     │   ├── results_test.txt
@@ -78,7 +78,7 @@ python inference.py --model_path=expiriment_time=Thu-Nov--4-19:24:03-2021/model.
 
 ```
 .
-└── PMG-Progressive-Multi-Granularity-Training
+└── VRDL_HW1_DEMO
     ├── expiriment_time=Thu-Nov--4-19:24:03-2021
     │   ├── model.pth
     │   ├── eval_result11-04-2021__20:47:15.txt
